@@ -22,7 +22,7 @@ namespace Ex55_Recursion
             Console.Write("\n");
 
             Console.WriteLine("Skriv en palindrom");
-            Console.WriteLine(IsPalindrom(Console.ReadLine().ToLower()));
+            Console.WriteLine(IsPalindrom(Console.ReadLine()));
         }
 
         public static int Fakultet(int n)
@@ -57,6 +57,7 @@ namespace Ex55_Recursion
         public static bool IsPalindrom(string text)
         {
             text = string.Concat(text.Where(c => !char.IsWhiteSpace(c)));
+            text = text.ToLower();
             if (text.Length <= 1)
             {
                 return true;
