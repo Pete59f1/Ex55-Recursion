@@ -11,18 +11,21 @@ namespace Ex55_Recursion
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Fakultet(6));
-            Console.WriteLine(Fakultet(0));
-            Console.Write("\n");
+            //Console.WriteLine(Fakultet(6));
+            //Console.WriteLine(Fakultet(0));
+            //Console.Write("\n");
 
-            for (int i = 0; i < 30; i++)
-            {
-                Console.WriteLine(Fibonacci(i));
-            }
-            Console.Write("\n");
+            //for (int i = 0; i < 30; i++)
+            //{
+            //    Console.WriteLine(Fibonacci(i));
+            //}
+            //Console.Write("\n");
 
-            Console.WriteLine("Skriv en palindrom");
-            Console.WriteLine(IsPalindrom(Console.ReadLine()));
+            //Console.WriteLine("Skriv en palindrom");
+            //Console.WriteLine(IsPalindrom(Console.ReadLine()));
+            //Console.Write("\n");
+            
+            SolveHanoi(3, 'A', 'C', 'B');
         }
 
         public static int Fakultet(int n)
@@ -72,6 +75,16 @@ namespace Ex55_Recursion
                 {
                     return IsPalindrom(text.Substring(1, text.Length - 2));
                 }
+            }
+        }
+
+        public static void SolveHanoi(int disks, char start, char end, char temp)
+        {
+            if (disks > 0)
+            {
+                SolveHanoi(disks - 1, start, temp, end);
+                Console.WriteLine("Flytter disk fra " + start + " til " + end);
+                SolveHanoi(disks - 1, temp, end, start);
             }
         }
     }
